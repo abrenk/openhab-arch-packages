@@ -1,0 +1,23 @@
+# Maintainer: Andreas Brenk <mail@andreasbrenk.com>
+pkgname=openhab-runtime
+pkgver=1.2.0
+pkgrel=1
+pkgdesc="A universal integration platform for all things around home automation based on Java and OSGi"
+url="https://code.google.com/p/openhab/"
+arch=('x86_64' 'i686')
+license=('GPL3')
+depends=('java-environment')
+source=("https://openhab.googlecode.com/files/${pkgname}-${pkgver}.zip")
+md5sums=('76f13fb6b2d23a96d0eb7df7ef6b32e4')
+options=(!strip)
+
+package() {
+  mkdir -p ${pkgdir}/opt/openhab
+  cp -r ${srcdir}/* ${pkgdir}/opt/openhab
+  rm ${pkgdir}/opt/openhab/${pkgname}-${pkgver}.zip
+
+  mkdir -p ${pkgdir}/usr/lib/systemd/system
+  cp openhab.service ${pkgdir}/usr/lib/systemd/system
+}
+
+# vim:set ts=2 sw=2 et:
