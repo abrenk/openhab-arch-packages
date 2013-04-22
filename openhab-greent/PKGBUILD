@@ -1,0 +1,21 @@
+# Maintainer: Andreas Brenk <mail@andreasbrenk.com>
+pkgname=openhab-greent
+pkgver=1.2.0
+pkgrel=1
+pkgdesc="The GreenT user interface for the openHAB Home Automation BUS"
+url="https://code.google.com/p/openhab/wiki/TouchUI"
+arch=('x86_64' 'i686')
+license=('GPL3')
+depends=('openhab-runtime' 'openhab-binding-exec')
+source=("https://openhab.googlecode.com/files/${pkgname}-${pkgver}.zip")
+md5sums=('d3925221fa5e4997b129ecf2038d344d')
+options=(!strip)
+
+package() {
+  mkdir -p ${pkgdir}/opt/openhab/webapps
+  cp -r ${srcdir}/greent ${pkgdir}/opt/openhab/webapps
+  mkdir -p ${pkgdir}/opt/openhab/configurations/items
+  cp ${srcdir}/greent/greent.items ${pkgdir}/opt/openhab/configurations/items
+}
+
+# vim:set ts=2 sw=2 et:
