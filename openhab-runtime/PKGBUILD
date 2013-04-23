@@ -4,11 +4,13 @@ pkgver=1.2.0
 pkgrel=1
 pkgdesc="A universal integration platform for all things around home automation based on Java and OSGi"
 url="https://code.google.com/p/openhab/"
-arch=('x86_64' 'i686')
+arch=('any')
 license=('GPL3')
 depends=('java-environment')
-source=("https://openhab.googlecode.com/files/${pkgname}-${pkgver}.zip")
-md5sums=('76f13fb6b2d23a96d0eb7df7ef6b32e4')
+source=("https://openhab.googlecode.com/files/${pkgname}-${pkgver}.zip"
+        'openhab.service')
+md5sums=('76f13fb6b2d23a96d0eb7df7ef6b32e4'
+         'c48a35609bfaf106e1631fbb377c06de')
 options=(!strip)
 
 package() {
@@ -16,8 +18,7 @@ package() {
   cp -r ${srcdir}/* ${pkgdir}/opt/openhab
   rm ${pkgdir}/opt/openhab/${pkgname}-${pkgver}.zip
 
-  mkdir -p ${pkgdir}/usr/lib/systemd/system
-  cp openhab.service ${pkgdir}/usr/lib/systemd/system
+  install -D -m644 openhab.service ${pkgdir}/usr/lib/systemd/system/openhab.service
 }
 
 # vim:set ts=2 sw=2 et:

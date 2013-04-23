@@ -1,0 +1,8 @@
+[Unit]
+Description=openHAB Home Automation Bus
+
+[Service]
+ExecStart=/opt/openhab/start.sh
+
+[Install]
+WantedBy=multi-user.target
