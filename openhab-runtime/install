@@ -1,0 +1,13 @@
+pre_install() {
+	getent group openhab &>/dev/null || groupadd -r openhab >/dev/null
+	getent passwd openhab &>/dev/null || useradd -r -g openhab -d /opt/openhab -c 'openHAB Home Automation Bus' -s /bin/false openhab >/dev/null
+}
+
+pre_upgrade() {
+	pre_install
+}
+
+post_remove() {
+	getent passwd openhab &>/dev/null && userdel openhab >/dev/null
+	getent group openhab &>/dev/null && groupdel openhab >/dev/null
+}

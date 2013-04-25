@@ -1,5 +1,10 @@
 2013-04-25 Andreas Brenk <mail@andreasbrenk.com>
 
+	* 2.1.0-3 :
+	run as user 'openhab'
+
+2013-04-25 Andreas Brenk <mail@andreasbrenk.com>
+
 	* 2.1.0-2 :
 	use Java Service Wrapper to start the JVM
 

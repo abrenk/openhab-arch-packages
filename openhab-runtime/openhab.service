@@ -3,6 +3,7 @@ Description=openHAB Home Automation Bus
 
 [Service]
 Type=forking
+User=openhab
 EnvironmentFile=-/etc/conf.d/openhab
 ExecStart=/opt/openhab/bin/openhab start
 ExecStop=/opt/openhab/bin/openhab stop
