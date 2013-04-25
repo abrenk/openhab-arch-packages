@@ -1,0 +1,9 @@
+2013-04-25 Andreas Brenk <mail@andreasbrenk.com>
+
+	* 2.1.0-2 :
+	use Java Service Wrapper to start the JVM
+
+2013-04-22 Andreas Brenk <mail@andreasbrenk.com>
+
+	* 2.1.0-1 :
+	Initial PKGBUILD

@@ -20,6 +20,7 @@ md5sums=('76f13fb6b2d23a96d0eb7df7ef6b32e4'
          '1744b08a831bd6c2af7adf9000c569dd'
          'dcd24c34feeda7c932aa201448d4b61d')
 options=(!strip)
+changelog=changelog
 
 package() {
   cd "$srcdir"
