@@ -1,24 +1,52 @@
 # Maintainer: Andreas Brenk <mail@andreasbrenk.com>
 pkgname=openhab-runtime
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A universal integration platform for all things around home automation based on Java and OSGi"
 url="https://code.google.com/p/openhab/"
-arch=('any')
+arch=('x86_64')
 license=('GPL3')
 depends=('java-environment')
 source=("https://openhab.googlecode.com/files/${pkgname}-${pkgver}.zip"
-        'openhab.service')
+        'http://wrapper.tanukisoftware.com/download/3.5.19/wrapper-linux-x86-64-3.5.19.tar.gz'
+        'openhab'
+        'openhab.conf.d'
+        'openhab.service'
+        'wrapper.conf')
 md5sums=('76f13fb6b2d23a96d0eb7df7ef6b32e4'
-         'c48a35609bfaf106e1631fbb377c06de')
+         '09f6865df57fa53ba0b76c97046bc691'
+         '127ce75a8a82434bacc636204c84af94'
+         'abe63d99dc7a173e079c6c033fd39377'
+         '1744b08a831bd6c2af7adf9000c569dd'
+         'dcd24c34feeda7c932aa201448d4b61d')
 options=(!strip)
 
 package() {
-  mkdir -p ${pkgdir}/opt/openhab
-  cp -r ${srcdir}/* ${pkgdir}/opt/openhab
-  rm ${pkgdir}/opt/openhab/${pkgname}-${pkgver}.zip
+  cd "$srcdir"
 
+  mkdir -p ${pkgdir}/opt/openhab
+  mkdir -p ${pkgdir}/opt/openhab/logs
+  mkdir -p ${pkgdir}/opt/openhab/run
+
+  cp -r addons ${pkgdir}/opt/openhab
+  cp -r configurations ${pkgdir}/opt/openhab
+  cp -r contexts ${pkgdir}/opt/openhab
+  cp -r etc ${pkgdir}/opt/openhab
+  cp -r server ${pkgdir}/opt/openhab
+  cp -r sounds ${pkgdir}/opt/openhab
+  cp -r webapps ${pkgdir}/opt/openhab
+
+  install -D -m755 openhab ${pkgdir}/opt/openhab/bin/openhab
+  install -D -m644 wrapper.conf ${pkgdir}/opt/openhab/etc/wrapper.conf
+
+  install -D -m644 openhab.conf.d ${pkgdir}/etc/conf.d/openhab
   install -D -m644 openhab.service ${pkgdir}/usr/lib/systemd/system/openhab.service
+
+  cd "$srcdir"/wrapper-linux-x86-64-3.5.19
+
+  install -D -m755 bin/wrapper ${pkgdir}/opt/openhab/lib/wrapper
+  install -D -m644 lib/libwrapper.so ${pkgdir}/opt/openhab/lib/libwrapper.so
+  install -D -m644 lib/wrapper.jar ${pkgdir}/opt/openhab/lib/wrapper.jar
 }
 
 # vim:set ts=2 sw=2 et:

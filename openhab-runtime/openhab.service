@@ -2,7 +2,12 @@
 Description=openHAB Home Automation Bus
 
 [Service]
-ExecStart=/opt/openhab/start.sh
+Type=forking
+EnvironmentFile=-/etc/conf.d/openhab
+ExecStart=/opt/openhab/bin/openhab start
+ExecStop=/opt/openhab/bin/openhab stop
+ExecReload=/opt/openhab/bin/openhab restart
+PIDFile=/opt/openhab/run/openhab.pid
 
 [Install]
 WantedBy=multi-user.target
