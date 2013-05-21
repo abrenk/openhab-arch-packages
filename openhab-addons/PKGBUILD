@@ -1,0 +1,254 @@
+# Maintainer: Andreas Brenk <mail@andreasbrenk.com>
+pkgname=('openhab-binding-asterisk'
+         'openhab-binding-bluetooth'
+         'openhab-binding-configadmin'
+         'openhab-binding-cups'
+         'openhab-binding-dmx'
+         'openhab-binding-exec'
+         'openhab-binding-fritzbox'
+         'openhab-binding-homematic'
+         'openhab-binding-http'
+         'openhab-binding-hue'
+         'openhab-binding-ihc'
+         'openhab-binding-knx'
+         'openhab-binding-koubachi'
+         'openhab-binding-modbus'
+         'openhab-binding-mpd'
+         'openhab-binding-networkhealth'
+         'openhab-binding-novelanheatpump'
+         'openhab-binding-ntp'
+         'openhab-binding-onewire'
+         'openhab-binding-plcbus'
+         'openhab-binding-plugwise'
+         'openhab-binding-pulseaudio'
+         'openhab-binding-rfxcom'
+         'openhab-binding-samsungtv'
+         'openhab-binding-serial'
+         'openhab-binding-snmp'
+         'openhab-binding-sonos'
+         'openhab-binding-tcp'
+         'openhab-binding-vdr'
+         'openhab-binding-wol'
+         'openhab-io-dropbox'
+         'openhab-io-freetts'
+         'openhab-io-marytts'
+         'openhab-persistence-cosm'
+         'openhab-persistence-db40'
+         'openhab-persistence-exec'
+         'openhab-persistence-logging'
+         'openhab-persistence-mysql'
+         'openhab-persistence-rrd4j'
+         'openhab-persistence-sense'
+         'openhab-persistence-sql')
+pkgbase=openhab-addons
+pkgver=1.2.0
+pkgrel=2
+arch=('any')
+url="http://openhab.org/"
+license=('GPL3')
+depends=('openhab-runtime')
+options=(!strip)
+changelog=ChangeLog
+source=("https://openhab.googlecode.com/files/${pkgbase}-${pkgver}.zip")
+md5sums=('e2b1305fc193c2dabb7d3d65fb52a5e4')
+
+do_package_binding() {
+  pkgdesc="The ${2} binding for the openHAB Home Automation Bus"
+
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/opt/openhab/addons"
+  install -m 644 org.openhab.binding.${1}-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+do_package_persistence() {
+  pkgdesc="The ${2} persistence service for the openHAB Home Automation Bus"
+
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/opt/openhab/addons"
+  install -m 644 org.openhab.persistence.${1}-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+package_openhab-binding-asterisk() {
+  do_package_binding 'asterisk' 'Asterisk'
+}
+
+package_openhab-binding-bluetooth() {
+  do_package_binding 'bluetooth' 'Bluetooth'
+}
+
+package_openhab-binding-configadmin() {
+  do_package_binding 'configadmin' 'OSGi Configuration Admin'
+}
+
+package_openhab-binding-cups() {
+  do_package_binding 'cups' 'CUPS'
+}
+
+package_openhab-binding-dmx() {
+  do_package_binding 'dmx' 'DMX512'
+  install -m 644 org.openhab.binding.dmx.lib485-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+  install -m 644 org.openhab.binding.dmx.ola-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+package_openhab-binding-exec() {
+  do_package_binding 'exec' 'Exec'
+}
+
+package_openhab-binding-fritzbox() {
+  do_package_binding 'fritzbox' 'Fritz!Box'
+}
+
+package_openhab-binding-homematic() {
+  do_package_binding 'homematic' 'HomeMatic'
+}
+
+package_openhab-binding-http() {
+  do_package_binding 'http' 'HTTP'
+}
+
+package_openhab-binding-hue() {
+  do_package_binding 'hue' 'Philips Hue'
+}
+
+package_openhab-binding-ihc() {
+  do_package_binding 'ihc' 'IHC / ELKO'
+}
+
+package_openhab-binding-knx() {
+  do_package_binding 'knx' 'KNX'
+}
+
+package_openhab-binding-koubachi() {
+  do_package_binding 'koubachi' 'Koubachi'
+}
+
+package_openhab-binding-modbus() {
+  do_package_binding 'modbus' 'Modbus'
+}
+
+package_openhab-binding-mpd() {
+  do_package_binding 'mpd' 'MPD'
+}
+
+package_openhab-binding-networkhealth() {
+  do_package_binding 'networkhealth' 'Network Health'
+}
+
+package_openhab-binding-novelanheatpump() {
+  do_package_binding 'novelanheatpump' 'Novelan Heatpump'
+}
+
+package_openhab-binding-ntp() {
+  do_package_binding 'ntp' 'NTP'
+}
+
+package_openhab-binding-onewire() {
+  do_package_binding 'onewire' 'One-Wire'
+}
+
+package_openhab-binding-plcbus() {
+  do_package_binding 'plcbus' 'PLCBus'
+}
+
+package_openhab-binding-plugwise() {
+  do_package_binding 'plugwise' 'Plugwise'
+}
+
+package_openhab-binding-pulseaudio() {
+  do_package_binding 'pulseaudio' 'Pulseaudio'
+}
+
+package_openhab-binding-rfxcom() {
+  do_package_binding 'rfxcom' 'RFXCOM'
+}
+
+package_openhab-binding-samsungtv() {
+  do_package_binding 'samsungtv' 'Samsung TV'
+}
+
+package_openhab-binding-serial() {
+  do_package_binding 'serial' 'Serial'
+}
+
+package_openhab-binding-snmp() {
+  do_package_binding 'snmp' 'SNMP'
+}
+
+package_openhab-binding-sonos() {
+  do_package_binding 'sonos' 'Sonos'
+}
+
+package_openhab-binding-tcp() {
+  do_package_binding 'tcp' 'TCP'
+}
+
+package_openhab-binding-vdr() {
+  do_package_binding 'vdr' 'VDR'
+}
+
+package_openhab-binding-wol() {
+  do_package_binding 'wol' 'Wake on LAN'
+}
+
+package_openhab-io-dropbox() {
+  pkgdesc="Dropbox support for the openHAB Home Automation Bus"
+
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/opt/openhab/addons"
+  install -m 644 org.openhab.io.dropbox-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+package_openhab-io-freetts() {
+  pkgdesc="FreeTTS support for the openHAB Home Automation Bus"
+
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/opt/openhab/addons"
+  install -m 644 org.openhab.io.multimedia.tts.freetts-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+package_openhab-io-marytts() {
+  pkgdesc="MaryTTS support for the openHAB Home Automation Bus"
+
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/opt/openhab/addons"
+  install -m 644 org.openhab.io.multimedia.tts.marytts-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+package_openhab-persistence-cosm() {
+  do_package_persistence 'cosm' 'Cosm'
+}
+
+package_openhab-persistence-db40() {
+  do_package_persistence 'db4o' 'db4o'
+}
+
+package_openhab-persistence-exec() {
+  do_package_persistence 'exec' 'Exec'
+}
+
+package_openhab-persistence-logging() {
+  do_package_persistence 'logging' 'Logging'
+}
+
+package_openhab-persistence-mysql() {
+  pkgdesc="MySQL support for the openHAB Home Automation Bus"
+  depends=('openhab-runtime' 'openhab-persistence-sql')
+
+  cd "${srcdir}"
+  mkdir -p "${pkgdir}/opt/openhab/addons"
+  install -m 644 org.openhab.persistence.sql.mysql-${pkgver}.jar "${pkgdir}/opt/openhab/addons/"
+}
+
+package_openhab-persistence-rrd4j() {
+  do_package_persistence 'rrd4j' 'rrd4j'
+}
+
+package_openhab-persistence-sense() {
+  do_package_persistence 'sense' 'Open.Sen.se'
+}
+
+package_openhab-persistence-sql() {
+  do_package_persistence 'sql' 'SQL'
+}
+
+# vim:set ts=2 sw=2 et:
