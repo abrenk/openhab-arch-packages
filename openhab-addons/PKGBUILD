@@ -49,8 +49,8 @@ license=('GPL3')
 depends=('openhab-runtime')
 options=(!strip)
 changelog=ChangeLog
-source=("https://openhab.googlecode.com/files/${pkgbase}-${pkgver}.zip")
-md5sums=('e2b1305fc193c2dabb7d3d65fb52a5e4')
+source=("https://openhab.googlecode.com/files/${pkgbase}-1.2.1.zip")
+md5sums=('c00395b833271aec3dad6b1f4f07809c')
 
 do_package_binding() {
   pkgdesc="The ${2} binding for the openHAB Home Automation Bus"
@@ -119,6 +119,8 @@ package_openhab-binding-knx() {
 }
 
 package_openhab-binding-koubachi() {
+  pkgver=1.2.1
+  pkgrel=1
   do_package_binding 'koubachi' 'Koubachi'
 }
 

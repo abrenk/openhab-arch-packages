@@ -1,4 +1,9 @@
 2013-05-21 Andreas Brenk <mail@andreasbrenk.com>
 
-	* 2.1.0-2 :
+	* 1.2.0-2 :
+	Update Koubachi binding to version 1.2.1
+
+2013-05-21 Andreas Brenk <mail@andreasbrenk.com>
+
+	* 1.2.0-2 :
 	Initial PKGBUILD
