@@ -16,6 +16,9 @@
 
 . /etc/conf.d/openhab
 
+export HTTP_PORT
+export HTTPS_PORT
+
 APP_NAME="openhab"
 APP_LONG_NAME="openHAB Home Automation Bus"
 
