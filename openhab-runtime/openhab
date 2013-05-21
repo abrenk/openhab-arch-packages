@@ -19,6 +19,8 @@
 APP_NAME="openhab"
 APP_LONG_NAME="openHAB Home Automation Bus"
 
+RUN_AS_USER="openhab"
+
 WRAPPER_CMD="../lib/wrapper"
 WRAPPER_CONF="../etc/wrapper.conf"
 
