@@ -1,0 +1,6 @@
+distribution-*-*.zip
+wrapper-linux-*.tar.gz
+*.pkg.tar.xz
+pkg
+src
+openhab.db openhab.db.tar.xz openhab.db.tar.xz.sig
