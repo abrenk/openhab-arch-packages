@@ -57,6 +57,7 @@ pkgname=('openhab-runtime'
          'openhab-binding-tinkerforge'
          'openhab-binding-urtsi'
          'openhab-binding-vdr'
+         'openhab-binding-weather'
          'openhab-binding-wol'
          'openhab-binding-xbmc'
          'openhab-binding-zwave'
@@ -434,6 +435,10 @@ package_openhab-binding-urtsi() {
 
 package_openhab-binding-vdr() {
   do_package_binding 'vdr' 'VDR'
+}
+
+package_openhab-binding-weather() {
+  do_package_binding 'weather' 'Weather'
 }
 
 package_openhab-binding-wol() {
