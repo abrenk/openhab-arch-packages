@@ -83,7 +83,7 @@ arch=('x86_64'
       'armv7h')
 url="http://openhab.org/"
 license=('EPL')
-depends=('java-environment')
+depends=('java-runtime')
 makedepends=('unzip')
 options=(!strip)
 changelog=ChangeLog
