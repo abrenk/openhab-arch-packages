@@ -87,6 +87,7 @@ depends=('java-runtime')
 makedepends=('unzip')
 options=(!strip)
 changelog=ChangeLog
+options=(!strip)
 #https://openhab.ci.cloudbees.com/job/openHAB/lastSuccessfulBuild/artifact/distribution/target/distribution-1.5.0-SNAPSHOT-addons.zip
 source=("https://github.com/openhab/openhab/releases/download/v${pkgver}/distribution-${pkgver}-runtime.zip"
         "https://github.com/openhab/openhab/releases/download/v${pkgver}/distribution-${pkgver}-addons.zip"
@@ -95,6 +96,9 @@ source=("https://github.com/openhab/openhab/releases/download/v${pkgver}/distrib
         'openhab.conf.d'
         'openhab.service'
         'wrapper.conf')
+source_x86_64+=('http://wrapper.tanukisoftware.com/download/3.5.25/wrapper-linux-x86-64-3.5.25.tar.gz')
+source_armv6h=('http://wrapper.tanukisoftware.com/download/3.5.25/wrapper-linux-armhf-32-3.5.25.tar.gz')
+source_armv7h=('http://wrapper.tanukisoftware.com/download/3.5.25/wrapper-linux-armhf-32-3.5.25.tar.gz')
 noextract=("distribution-${pkgver}-demo-configuration.zip")
 md5sums=('2ed35f210fd47e62aef3118844dbdcbb'
          '4fdde88782a02ab70c9ece418e92fa66'
@@ -103,17 +107,9 @@ md5sums=('2ed35f210fd47e62aef3118844dbdcbb'
          'abe63d99dc7a173e079c6c033fd39377'
          '891947fb68de43849339ab0cd1b1a031'
          '131aa0634410f585324a7186a2849c49')
-if test "$CARCH" == x86_64; then
-  source+=('http://wrapper.tanukisoftware.com/download/3.5.25/wrapper-linux-x86-64-3.5.25.tar.gz')
-  md5sums+=('6810b2766c0f3fdbde8786b82d9cc355')
-elif test "$CARCH" == armv6h; then
-  source+=('http://wrapper.tanukisoftware.com/download/3.5.25/wrapper-linux-armhf-32-3.5.25.tar.gz')
-  md5sums+=('1de7eccb6c20b1f6e75802dfca74d8bb')
-elif test "$CARCH" == armv7h; then
-  source+=('http://wrapper.tanukisoftware.com/download/3.5.25/wrapper-linux-armhf-32-3.5.25.tar.gz')
-  md5sums+=('1de7eccb6c20b1f6e75802dfca74d8bb')
-fi
-options=(!strip)
+md5sums_x86_64=('6810b2766c0f3fdbde8786b82d9cc355')
+md5sums_armv6h=('1de7eccb6c20b1f6e75802dfca74d8bb')
+md5sums_armv7h=('1de7eccb6c20b1f6e75802dfca74d8bb')
 
 do_package_action() {
   arch=('any')
