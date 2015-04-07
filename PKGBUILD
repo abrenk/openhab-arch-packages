@@ -7,6 +7,7 @@ pkgname=('openhab-runtime'
          'openhab-action-twitter'
          'openhab-action-xbmc'
          'openhab-action-xmpp'
+         'openhab-binding-anel'
          'openhab-binding-asterisk'
          'openhab-binding-astro'
          'openhab-binding-bluetooth'
@@ -229,6 +230,10 @@ package_openhab-action-xbmc() {
 
 package_openhab-action-xmpp() {
   do_package_action 'xmpp' 'XMPP / Jabber'
+}
+
+package_openhab-binding-anel() {
+  do_package_binding 'anel' 'Anel NET-PwrCtrl'
 }
 
 package_openhab-binding-asterisk() {
