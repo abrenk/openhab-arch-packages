@@ -76,7 +76,7 @@ pkgname=('openhab-runtime'
          'openhab-persistence-mysql'
          'openhab-demo-configuration')
 pkgbase=openhab
-pkgver=1.6.1
+pkgver=1.7.0
 pkgrel=1
 arch=('x86_64'
       'armv6h'
@@ -89,9 +89,9 @@ options=(!strip)
 changelog=ChangeLog
 options=(!strip)
 #https://openhab.ci.cloudbees.com/job/openHAB/lastSuccessfulBuild/artifact/distribution/target/distribution-1.5.0-SNAPSHOT-addons.zip
-source=("https://github.com/openhab/openhab/releases/download/v${pkgver}/distribution-${pkgver}-runtime.zip"
-        "https://github.com/openhab/openhab/releases/download/v${pkgver}/distribution-${pkgver}-addons.zip"
-        "https://github.com/openhab/openhab/releases/download/v${pkgver}/distribution-${pkgver}-demo-configuration.zip"
+source=("https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-runtime.zip"
+        "https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-addons.zip"
+        "https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-demo-configuration.zip"
         'openhab'
         'openhab.conf.d'
         'openhab.service'
@@ -100,9 +100,9 @@ source_x86_64+=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux
 source_armv6h=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux-armhf-32-3.5.26.tar.gz')
 source_armv7h=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux-armhf-32-3.5.26.tar.gz')
 noextract=("distribution-${pkgver}-demo-configuration.zip")
-md5sums=('2ed35f210fd47e62aef3118844dbdcbb'
-         '4fdde88782a02ab70c9ece418e92fa66'
-         '24ea9eec6df3a0b636f67346fdf027b7'
+md5sums=('cecc93e8cf8abf96a956c1502229efaf'
+         'e2340abbb14fc6c22e0d884a431dc5de'
+         '133cc5b78f428d0c277f01db08b400e2'
          'e42879cf579ba86886d86d3a9dbc8fbc'
          'abe63d99dc7a173e079c6c033fd39377'
          '891947fb68de43849339ab0cd1b1a031'
@@ -110,6 +110,9 @@ md5sums=('2ed35f210fd47e62aef3118844dbdcbb'
 md5sums_x86_64=('91d4bd44bd8cfa567262ec715ee29a70')
 md5sums_armv6h=('2b0294f6d7faac87ddfcb63bd22cf311')
 md5sums_armv7h=('2b0294f6d7faac87ddfcb63bd22cf311')
+
+#pkgver() {
+#}
 
 do_package_action() {
   arch=('any')
