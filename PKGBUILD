@@ -32,6 +32,7 @@ pkgname=('openhab-runtime'
          'openhab-binding-mpd'
          'openhab-binding-mqtt'
          'openhab-binding-mqttitude'
+         'openhab-binding-nest'
          'openhab-binding-netatmo'
          'openhab-binding-networkhealth'
          'openhab-binding-nibeheatpump'
@@ -76,7 +77,7 @@ pkgname=('openhab-runtime'
          'openhab-persistence-mysql'
          'openhab-demo-configuration')
 pkgbase=openhab
-pkgver=1.7.0
+pkgver=1.7.1
 pkgrel=1
 arch=('x86_64'
       'armv6h'
@@ -91,7 +92,7 @@ options=(!strip)
 #https://openhab.ci.cloudbees.com/job/openHAB/lastSuccessfulBuild/artifact/distribution/target/distribution-1.5.0-SNAPSHOT-addons.zip
 source=("https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-runtime.zip"
         "https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-addons.zip"
-        "https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-demo-configuration.zip"
+        "https://bintray.com/artifact/download/openhab/bin/distribution-${pkgver}-demo.zip"
         'openhab'
         'openhab.conf.d'
         'openhab.service'
@@ -100,9 +101,9 @@ source_x86_64+=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux
 source_armv6h=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux-armhf-32-3.5.26.tar.gz')
 source_armv7h=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux-armhf-32-3.5.26.tar.gz')
 noextract=("distribution-${pkgver}-demo-configuration.zip")
-md5sums=('cecc93e8cf8abf96a956c1502229efaf'
-         'e2340abbb14fc6c22e0d884a431dc5de'
-         '133cc5b78f428d0c277f01db08b400e2'
+md5sums=('d8c1e777bfa9da5c19a9b363fcbe99b5'
+         '5141177fa8cc009756eabc95fa399b2c'
+         'e74b76d985a5e87e780e43277fd3d5e7'
          'e42879cf579ba86886d86d3a9dbc8fbc'
          'abe63d99dc7a173e079c6c033fd39377'
          '891947fb68de43849339ab0cd1b1a031'
@@ -332,6 +333,10 @@ package_openhab-binding-mqtt() {
 
 package_openhab-binding-mqttitude() {
   do_package_binding 'mqttitude' 'OwnTracks'
+}
+
+package_openhab-binding-nest() {
+  do_package_binding 'nest' 'Nest'
 }
 
 package_openhab-binding-netatmo() {
