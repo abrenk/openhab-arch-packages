@@ -77,7 +77,7 @@ pkgname=('openhab-runtime'
          'openhab-persistence-mysql'
          'openhab-demo-configuration')
 pkgbase=openhab
-pkgver=1.7.1
+pkgver=1.8.1
 pkgrel=1
 arch=('x86_64'
       'armv6h'
@@ -101,9 +101,9 @@ source_x86_64+=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux
 source_armv6h=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux-armhf-32-3.5.26.tar.gz')
 source_armv7h=('http://wrapper.tanukisoftware.com/download/3.5.26/wrapper-linux-armhf-32-3.5.26.tar.gz')
 noextract=("distribution-${pkgver}-demo-configuration.zip")
-md5sums=('d8c1e777bfa9da5c19a9b363fcbe99b5'
-         '5141177fa8cc009756eabc95fa399b2c'
-         'e74b76d985a5e87e780e43277fd3d5e7'
+md5sums=('c70145611a4c858d346bcc3873ab7bde'
+         'e0c7e81feccc6d1f56c63d7ff9beb211'
+         'f863e753f706de90367cdbee293cebb3'
          'e42879cf579ba86886d86d3a9dbc8fbc'
          'abe63d99dc7a173e079c6c033fd39377'
          '891947fb68de43849339ab0cd1b1a031'
@@ -111,9 +111,6 @@ md5sums=('d8c1e777bfa9da5c19a9b363fcbe99b5'
 md5sums_x86_64=('91d4bd44bd8cfa567262ec715ee29a70')
 md5sums_armv6h=('2b0294f6d7faac87ddfcb63bd22cf311')
 md5sums_armv7h=('2b0294f6d7faac87ddfcb63bd22cf311')
-
-#pkgver() {
-#}
 
 do_package_action() {
   arch=('any')

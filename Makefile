@@ -1,10 +1,13 @@
+#ARCH=armv7h
+ARCH=x86_64
+
 all:
 
 clean:
 	rm -f *.pkg.tar.xz
+	rm -f openhab.db*
 	rm -rf pkg
 	rm -rf src
-	@#rm -f *.pkg.tar.xz
 	@#rm -f *.db
 	@#rm -f *.sig
 	rm -f *.old
@@ -12,9 +15,7 @@ clean:
 	rm -f upload
 
 packages:
-	makepkg
-
-// CARCH=armv7h makepkg --pkg openhab-runtime
+	CARCH=$(ARCH) makepkg
 
 #all: update openhab.db.tar.xz upload
 
